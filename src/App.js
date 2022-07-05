@@ -1,6 +1,7 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import './index.css';
 import { Price } from './price';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const initialValue = { days: '', fees: '292' };
@@ -37,54 +38,65 @@ function App() {
   };
 
   return (
-    <div className='box'>
-      <form className='form' onSubmit={handleSubmit}>
-        <label htmlFor='days' className='label'>
-          Days left
-        </label>
-        {formErrors.days && <p className='error-days'>{formErrors.days}</p>}
-        <input
-          type='text'
-          name='days'
-          className='input'
-          onChange={handleChange}
-          value={formValue.days}
-        />
-        <label htmlFor='rego' className='label'>
-          Annual Rego Fees
-        </label>
+    <div class='container my-4 '>
+      <div class='row row justify-content-center'>
+        <div class='col-sm-8 col-md-6 col-lg-5 col-xl-4 bg-light shadow p-3 mb-5 bg-body rounded'>
+          <form className='form' onSubmit={handleSubmit}>
+            <label htmlFor='days' className='label'>
+              Days left
+            </label>
+            {formErrors.days && <p className='error-days'>{formErrors.days}</p>}
+            <input
+              type='text'
+              name='days'
+              className='form-control my-2'
+              onChange={handleChange}
+              value={formValue.days}
+            />
+            <label htmlFor='rego' className='label'>
+              Annual Rego Fees
+            </label>
 
-        <select name='drop' className='input' onChange={handleChange}>
-          <option value='292' name='fees'>
-            $292
-          </option>
-          <option value='329' name='fees'>
-            $329
-          </option>
-          <option value='329' name='fees'>
-            $329
-          </option>
-          <option value='554' name='fees'>
-            $554
-          </option>
-          <option value='433' name='fees'>
-            $433
-          </option>
-          <option value='483' name='fees'>
-            $483
-          </option>
-          <option value='570' name='fees'>
-            $570
-          </option>
-          <option value='824' name='fees'>
-            $824
-          </option>
-        </select>
-        <button className='btn' onClick={() => setIsSubmit(!isSubmit)}>
-          Calculate
-        </button>
-        <Price day={formValue.days} fee={formValue.fees} />
-      </form>
+            <select
+              name='drop'
+              className='form-select my-2'
+              onChange={handleChange}
+            >
+              <option value='294' name='fees'>
+                $294
+              </option>
+              <option value='331' name='fees'>
+                $331
+              </option>
+              <option value='388' name='fees'>
+                $388
+              </option>
+              <option value='556' name='fees'>
+                $556
+              </option>
+              <option value='435' name='fees'>
+                $433
+              </option>
+              <option value='485' name='fees'>
+                $485
+              </option>
+              <option value='572' name='fees'>
+                $572
+              </option>
+              <option value='826' name='fees'>
+                $826
+              </option>
+            </select>
+            <button
+              className='btn btn-info my-4'
+              onClick={() => setIsSubmit(!isSubmit)}
+            >
+              Calculate
+            </button>
+            <Price day={formValue.days} fee={formValue.fees} />
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

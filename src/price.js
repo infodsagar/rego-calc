@@ -1,6 +1,3 @@
-import React from 'react';
-import App from './App';
-
 export const Price = (props) => {
   const { day, fee } = props;
   let temp = '';
@@ -10,5 +7,5 @@ export const Price = (props) => {
     temp = '';
   }
 
-  return <h1>Refund: ${temp}</h1>;
+  return <h1>Refund: $ {temp ? temp : 0}</h1>;
 };
