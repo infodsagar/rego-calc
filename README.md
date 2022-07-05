@@ -1,3 +1,24 @@
+React based calculator to calculate estimated regestration fees for Transport NSW
+
+Helpful when apply for refund when canceled NSW car regestration
+
+Total refund is final amount after deducting cancelation fees $30 and non refundable regestration fes $68
+
+Access site here:- https://rego-calc.netlify.app/
+
+Screenshot
+
+![ss1](https://user-images.githubusercontent.com/6619450/177312025-1d29548a-00c0-4cc3-a50f-35dc094d2433.PNG)
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
