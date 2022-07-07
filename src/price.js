@@ -1,3 +1,9 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faFaceSmile,
+  faFaceSadTear,
+} from '@fortawesome/free-regular-svg-icons';
+
 export const Price = (props) => {
   const { day, fee } = props;
   let temp = '';
@@ -7,5 +13,11 @@ export const Price = (props) => {
     temp = '';
   }
 
-  return <h1>Refund: $ {temp ? temp : 0}</h1>;
+  return (
+    <div className='fs-3'>
+      Refund: $ {temp ? temp : 0}{' '}
+      <FontAwesomeIcon icon={temp > 0 ? faFaceSmile : ''} />
+      <FontAwesomeIcon icon={temp < 0 ? faFaceSadTear : ''} />
+    </div>
+  );
 };

@@ -4,14 +4,22 @@ body {
   background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
 }
 
-.label {
-  margin-top: 10px;
-}
-
 .error-days {
   color: red;
   font-size: 14px;
 }
 option {
   font-size: 16px;
+}
+.input-width {
+  max-width: 40px;
+}
+.input-width-year {
+  max-width: 80px;
+}
+.btn-today {
+  border: none;
+  background-color: white;
+  color: rgba(52, 52, 183, 0.842);
+  font-weight: bold;
 }

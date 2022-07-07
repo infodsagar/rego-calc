@@ -9,6 +9,21 @@ function App() {
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
 
+  let fromDate = new Date(
+    parseInt(formValue.startYear),
+    parseInt(formValue.startMonth - 1),
+    parseInt(formValue.startDay)
+  );
+
+  let endDate = new Date(
+    parseInt(formValue.endYear),
+    parseInt(formValue.endMonth - 1),
+    parseInt(formValue.endDay)
+  );
+
+  const oneDay = 24 * 60 * 60 * 1000;
+  const totalDays = Math.round(Math.abs((fromDate - endDate) / oneDay));
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValue));
@@ -16,7 +31,18 @@ function App() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormValue({ ...formValue, [name]: value });
+
+    if (
+      (name === 'startDay' && value <= 31) ||
+      (name === 'endDay' && value <= 31) ||
+      (name === 'days' && value <= 365) ||
+      (name === 'startMonth' && value <= 12) ||
+      (name === 'endMonth' && value <= 12) ||
+      (name === 'startYear' && value.length <= 4) ||
+      (name === 'endYear' && value.length <= 4)
+    ) {
+      setFormValue({ ...formValue, [name]: value });
+    }
   };
 
   const validate = (values) => {
@@ -38,11 +64,77 @@ function App() {
   };
 
   return (
-    <div class='container my-4 '>
-      <div class='row row justify-content-center'>
-        <div class='col-sm-8 col-md-6 col-lg-5 col-xl-4 bg-light shadow p-3 mb-5 bg-body rounded'>
-          <form className='form' onSubmit={handleSubmit}>
-            <label htmlFor='days' className='label'>
+    <div class='container my-4'>
+      <div class='row row justify-content-center '>
+        <div class='col-9 col-sm-8 col-md-6 col-lg-5 col-xl-4 bg-light shadow p-3 mb-5 bg-body rounded d-flex flex-column'>
+          <form className='form d-flex flex-column' onSubmit={handleSubmit}>
+            <label htmlFor='start' className='mb-2'>
+              Enter start date
+            </label>
+
+            <div className='d-flex'>
+              <input
+                type='text'
+                name='startDay'
+                placeholder='dd'
+                className='input-width me-1'
+                onChange={handleChange}
+                value={formValue.startDay}
+              />
+              <span>/</span>
+              <input
+                type='text'
+                name='startMonth'
+                placeholder='mm'
+                className='input-width mx-2'
+                onChange={handleChange}
+                value={formValue.startMonth}
+              />
+              <span>/</span>
+              <input
+                type='text'
+                name='startYear'
+                placeholder='yyyy'
+                className='input-width-year ms-2'
+                onChange={handleChange}
+                value={formValue.startYear}
+              />
+            </div>
+
+            <label htmlFor='end' className='my-2'>
+              Enter end date
+            </label>
+
+            <div className='d-flex'>
+              <input
+                type='text'
+                name='endDay'
+                placeholder='dd'
+                className='input-width me-1'
+                onChange={handleChange}
+                value={formValue.endDay}
+              />
+              <span>/</span>
+              <input
+                type='text'
+                name='endMonth'
+                placeholder='mm'
+                className='input-width mx-2'
+                onChange={handleChange}
+                value={formValue.endMonth}
+              />
+              <span>/</span>
+              <input
+                type='text'
+                name='endYear'
+                placeholder='yyyy'
+                className='input-width-year ms-2'
+                onChange={handleChange}
+                value={formValue.endYear}
+              />
+            </div>
+
+            <label htmlFor='days' className='mt-2'>
               Days left
             </label>
             {formErrors.days && <p className='error-days'>{formErrors.days}</p>}
@@ -51,9 +143,10 @@ function App() {
               name='days'
               className='form-control my-2'
               onChange={handleChange}
-              value={formValue.days}
+              value={formValue.days | (totalDays < 365) ? totalDays : 0}
             />
-            <label htmlFor='rego' className='label'>
+
+            <label htmlFor='rego' className='mt-2'>
               Annual Rego Fees
             </label>
 
