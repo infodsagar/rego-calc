@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faFaceSmile,
-  faFaceSadTear,
-} from '@fortawesome/free-regular-svg-icons';
+  solid,
+  regular,
+  brands,
+} from '@fortawesome/fontawesome-svg-core/import.macro';
 
 export const Price = (props) => {
   const { day, fee } = props;
@@ -16,8 +17,8 @@ export const Price = (props) => {
   return (
     <div className='fs-3'>
       Refund: $ {temp ? temp : 0}{' '}
-      <FontAwesomeIcon icon={temp > 0 ? faFaceSmile : ''} />
-      <FontAwesomeIcon icon={temp < 0 ? faFaceSadTear : ''} />
+      <FontAwesomeIcon icon={temp > 0 ? regular('face-laugh') : ''} />
+      <FontAwesomeIcon icon={temp < 0 ? regular('face-sad-tear') : ''} />
     </div>
   );
 };

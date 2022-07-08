@@ -4,7 +4,14 @@ import { Price } from './price';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const initialValue = { days: '', fees: '292' };
+  const today = new Date();
+  const initialValue = {
+    days: '',
+    fees: '292',
+    startDay: today.getDate(),
+    startMonth: today.getMonth() + 1,
+    startYear: today.getFullYear(),
+  };
   const [formValue, setFormValue] = useState(initialValue);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
@@ -66,7 +73,7 @@ function App() {
   return (
     <div class='container my-4'>
       <div class='row row justify-content-center '>
-        <div class='col-9 col-sm-8 col-md-6 col-lg-5 col-xl-4 bg-light shadow p-3 mb-5 bg-body rounded d-flex flex-column'>
+        <div class='col-11 col-sm-8 col-md-6 col-lg-5 col-xl-4 bg-light shadow p-3 mb-5 bg-body rounded d-flex flex-column'>
           <form className='form d-flex flex-column' onSubmit={handleSubmit}>
             <label htmlFor='start' className='mb-2'>
               Enter start date
@@ -135,7 +142,10 @@ function App() {
             </div>
 
             <label htmlFor='days' className='mt-2'>
-              Days left
+              Days left:{' '}
+              <span className='fw-bold'>
+                {totalDays < 365 ? totalDays : ''}
+              </span>
             </label>
             {formErrors.days && <p className='error-days'>{formErrors.days}</p>}
             <input
@@ -143,7 +153,7 @@ function App() {
               name='days'
               className='form-control my-2'
               onChange={handleChange}
-              value={formValue.days | (totalDays < 365) ? totalDays : 0}
+              value={formValue.days}
             />
 
             <label htmlFor='rego' className='mt-2'>
@@ -186,6 +196,7 @@ function App() {
             >
               Calculate
             </button>
+
             <Price day={formValue.days} fee={formValue.fees} />
           </form>
         </div>
