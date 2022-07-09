@@ -1,14 +1,23 @@
+Purpose:
 React based calculator to calculate estimated regestration fees for Transport NSW
 
 Helpful when apply for refund when canceled NSW car regestration
 
 Total refund is final amount after deducting cancelation fees $30 and non refundable regestration fes $68
 
-Access site here:- https://rego-calc.netlify.app/
+Access site here:- https://rego-nsw.netlify.app/
 
-Screenshot
+Features:
+Date to date calculator included
+Pre-filled with today's date in start date
+prevent user to enter more than 365 days
+if refund is less than $0 render sad fontawesom icon smily icon for refund above $0
+Site is responsive uses Bootstrap grid
 
-![ss1](https://user-images.githubusercontent.com/6619450/177312025-1d29548a-00c0-4cc3-a50f-35dc094d2433.PNG)
+Screenshot:
+
+![ss1](https://user-images.githubusercontent.com/6619450/178086765-d49b5463-a0ed-414e-bcbc-fa6542eb2f55.PNG)
+![ss2](https://user-images.githubusercontent.com/6619450/178086767-82cc8baf-e764-4b2a-a818-3e5696364c9b.PNG)
 
 
 
@@ -29,56 +38,7 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
