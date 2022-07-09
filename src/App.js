@@ -15,6 +15,7 @@ function App() {
   const [formValue, setFormValue] = useState(initialValue);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+  const [value, onChange] = useState(new Date());
 
   let fromDate = new Date(
     parseInt(formValue.startYear),
@@ -143,9 +144,7 @@ function App() {
 
             <label htmlFor='days' className='mt-2'>
               Days left:{' '}
-              <span className='fw-bold'>
-                {totalDays < 365 ? totalDays : ''}
-              </span>
+              <span className='fw-bold'>{totalDays > 0 ? totalDays : ''}</span>
             </label>
             {formErrors.days && <p className='error-days'>{formErrors.days}</p>}
             <input

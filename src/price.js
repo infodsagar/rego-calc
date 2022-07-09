@@ -1,9 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  solid,
-  regular,
-  brands,
-} from '@fortawesome/fontawesome-svg-core/import.macro';
+import { regular } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 export const Price = (props) => {
   const { day, fee } = props;
