@@ -8,10 +8,15 @@ Total refund is final amount after deducting cancelation fees $30 and non refund
 Access site here:- https://rego-nsw.netlify.app/
 
 Features:
+
 Date to date calculator included
+
 Pre-filled with today's date in start date
+
 prevent user to enter more than 365 days
+
 if refund is less than $0 render sad fontawesom icon smily icon for refund above $0
+
 Site is responsive uses Bootstrap grid
 
 Screenshot:
