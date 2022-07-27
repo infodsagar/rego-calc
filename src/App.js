@@ -7,7 +7,7 @@ function App() {
   const today = new Date();
   const initialValue = {
     days: '',
-    fees: '292',
+    fees: '294',
     startDay: today.getDate(),
     startMonth: today.getMonth() + 1,
     startYear: today.getFullYear(),
@@ -47,7 +47,8 @@ function App() {
       (name === 'startMonth' && value <= 12) ||
       (name === 'endMonth' && value <= 12) ||
       (name === 'startYear' && value.length <= 4) ||
-      (name === 'endYear' && value.length <= 4)
+      (name === 'endYear' && value.length <= 4) ||
+      name === 'fees'
     ) {
       setFormValue({ ...formValue, [name]: value });
     }
@@ -160,7 +161,7 @@ function App() {
             </label>
 
             <select
-              name='drop'
+              name='fees'
               className='form-select my-2'
               onChange={handleChange}
             >
